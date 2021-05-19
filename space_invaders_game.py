@@ -48,7 +48,11 @@ xchange = 0
 bullet_img = load_image('blt2.png')
 bullet_x = 400
 bullet_y = 550
-bullet_ychange = 6
+bullet_speed = 0
+while bullet_speed < 1 or bullet_speed > 100:
+    bullet_speed = float(input("Please enter a bullet speed between 1 and 100: "))
+
+
 bullet_state = 'ready'
 
 # Adding enemy to screen
@@ -144,7 +148,7 @@ while running:
     # Bullet movement
     if bullet_state == 'fire':
         bullet()
-        bullet_y -= bullet_ychange
+        bullet_y -= bullet_speed
         
     # Preventing bullet from leaving screen
     if bullet_y <= 0:
