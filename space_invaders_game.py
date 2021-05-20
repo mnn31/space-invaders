@@ -50,7 +50,11 @@ bullet_x = 400
 bullet_y = 550
 bullet_speed = 0
 while bullet_speed < 1 or bullet_speed > 100:
-    bullet_speed = float(input("Please enter a bullet speed between 1 and 100: "))
+    bullet_speed1 = input("Please enter a bullet speed between 1 and 100: ")
+    if bullet_speed1 == '':
+        bullet_speed1 = random.randint(1, 50)
+        
+    bullet_speed = int(bullet_speed1)
 
 
 bullet_state = 'ready'
@@ -196,9 +200,9 @@ while running:
     # Calling player() function to display player on screen
     player()
 
-    # Showing score
     show_score()
     show_num_enemies()
+    show_text("BulletSpeed", bullet_speed, 200, 10)
 
     # Updating screen
     pygame.display.update()
